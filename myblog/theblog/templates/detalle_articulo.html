@@ -7,7 +7,9 @@
 
 <h1>{{ post.titulo }}</h1>
 <small>De: {{ post.autor.first_name }} 
-           {{ post.autor.last_name }}
+           {{ post.autor.last_name }} -
+           {{ post.fecha_publicacion }} -
+
            <small>
             <a href="{% url 'actualizar_post' post.pk %}">(Editar)</a>
             <a href="{% url 'eliminar_post' post.pk %}" class="text-danger">(Eliminar)</a>
