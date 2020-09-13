@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, EditForm
 
 class HomeView(ListView):
     model = Post
@@ -15,4 +15,9 @@ class AddPostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'añadir_post.html'
-    #fields = '__all__'
+
+class UpdatePostView(UpdateView):
+    model = Post
+    form_class = EditForm
+    template_name = 'actualizar_post.html'
+    #fields = ['titulo', 'titulo_tag', 'articulo']
