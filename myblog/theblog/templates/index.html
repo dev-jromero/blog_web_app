@@ -11,6 +11,8 @@
             {{ post.autor.last_name }} - 
             <small>
                 <a href="{% url 'actualizar_post' post.pk %}">(Editar)</a>
+                <a href="{% url 'eliminar_post' post.pk %}" class="text-danger">(Eliminar)</a>
+                
             </small>
             <br>
         {{ post.articulo }}</li>

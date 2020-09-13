@@ -4,13 +4,14 @@
 
 {% block content %}
 <br>
-<h1>Actualizar Post</h1>
+<h1>Eliminar Post</h1>
 <br><br>
+<h3>Eliminar: {{ post.titulo }}</h3><br>
 <div class="form-group">
     <form method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Actualizar</button>
+        <strong>Esta seguro de eliminar este post?</strong><br><br>
+        <button class="btn btn-danger">Eliminar Post</button>
     </form>
 </div>
 
