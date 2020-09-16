@@ -3,17 +3,21 @@
 {% block title %}{{ post.titulo }} | {{ post.titulo_tag }}{% endblock %}
 
 {% block content %}
+
 <br>
 
 <h1>{{ post.titulo }}</h1>
 <small>De: {{ post.autor.first_name }} 
            {{ post.autor.last_name }} -
-           {{ post.fecha_publicacion }} -
-
-           <small>
-            <a href="{% url 'actualizar_post' post.pk %}">(Editar)</a>
-            <a href="{% url 'eliminar_post' post.pk %}" class="text-danger">(Eliminar)</a>
-          </small><br>
+           {{ post.fecha_publicacion }} 
+           
+           {% if user.is_authenticated %}
+           -
+            <small>
+              <a href="{% url 'actualizar_post' post.pk %}">(Editar)</a>
+              <a href="{% url 'eliminar_post' post.pk %}" class="text-danger">(Eliminar)</a>
+            </small><br>
+          {% endif %}
 </small><br>
 <hr>
 {{ post.articulo }}
@@ -21,5 +25,6 @@
 <br>
 
 <a href="{% url 'home' %}" class="btn btn-primary">atras</a>
+
 
 {% endblock %}

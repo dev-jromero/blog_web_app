@@ -3,6 +3,8 @@
 {% block title %}{{ post.titulo }} Crear un Nuevo Blog {% endblock %}
 
 {% block content %}
+
+{% if user.is_authenticated %}
 <br>
 <h1>Añadir Post</h1>
 <br><br>
@@ -13,6 +15,9 @@
         <button class="btn btn-secondary">Post</button>
     </form>
 </div>
+{% else %}
+<h1>Usted no esta permitido aqui!</h1>
+{% endif %}
 
 
 

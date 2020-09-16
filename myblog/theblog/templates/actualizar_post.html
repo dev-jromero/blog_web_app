@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
-
 {% block title %}Editar post{% endblock %}
-
 {% block content %}
-<br>
-<h1>Actualizar Post</h1>
-<br><br>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Actualizar</button>
-    </form>
-</div>
 
-
+{% if user.is_authenticated %}
+    <br>
+    <h1>Actualizar Post</h1>
+    <br><br>
+    <div class="form-group">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Actualizar</button>
+        </form>
+    </div>
+{% else %}
+<h1>Usted no esta permitido aqui!</h1>
+{% endif %}
 
 {% endblock %}

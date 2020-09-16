@@ -23,9 +23,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{%url 'añadir_post'%}">Añadir Post</a>
-            </li>
+
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'añadir_post' %}">Añadir Post</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'registro' %}">Registrarse</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Iniciar Sesion</a>
+              </li>
+
+            {% endif %}
+            
+
+            
+
+            
+
           </ul>
         </div>
       </nav>
