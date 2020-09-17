@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.titulo }} Crear una Nueva Categoria {% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<br>
+<h1>Añadir Categoria</h1>
+<br><br>
+<div class="form-group">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button class="btn btn-secondary">Añadir Categoria</button>
+    </form>
+</div>
+{% else %}
+<h1>Usted no esta permitido aqui!</h1>
+{% endif %}
+
+
+
+{% endblock %}
