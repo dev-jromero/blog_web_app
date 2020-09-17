@@ -12,11 +12,13 @@
            {{ post.fecha_publicacion }} 
            
            {% if user.is_authenticated %}
-           -
-            <small>
-              <a href="{% url 'actualizar_post' post.pk %}">(Editar)</a>
-              <a href="{% url 'eliminar_post' post.pk %}" class="text-danger">(Eliminar)</a>
-            </small><br>
+            {% if user.id == post.autor.id %}
+              -
+                <small>
+                  <a href="{% url 'actualizar_post' post.pk %}">(Editar)</a>
+                  <a href="{% url 'eliminar_post' post.pk %}" class="text-danger">(Eliminar)</a>
+                </small><br>
+              {% endif %}
           {% endif %}
 </small><br>
 <hr>

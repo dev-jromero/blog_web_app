@@ -5,17 +5,21 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<br>
-<h1>Eliminar Post</h1>
-<br><br>
-<h3>Eliminar: {{ post.titulo }}</h3><br>
-<div class="form-group">
-    <form method="POST">
-        {% csrf_token %}
-        <strong>Esta seguro de eliminar este post?</strong><br><br>
-        <button class="btn btn-danger">Eliminar Post</button>
-    </form>
-</div>
+    {% if user.id == post.autor.id %}
+        <br>
+        <h1>Eliminar Post</h1>
+        <br><br>
+        <h3>Eliminar: {{ post.titulo }}</h3><br>
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                <strong>Esta seguro de eliminar este post?</strong><br><br>
+                <button class="btn btn-danger">Eliminar Post</button>
+            </form>
+        </div>
+    {% else %}
+        <h1>Usted no esta permitido aqui!</h1>
+    {% endif %}
 {% else %}
 <h1>Usted no esta permitido aqui!</h1>
 {% endif %}
