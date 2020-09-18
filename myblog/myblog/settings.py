@@ -25,7 +25,7 @@ SECRET_KEY = 'o__algx=h1ci*!7_$fck8x-rd21jdfhv6by88n58w($hpx=&n='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'theblog',
     'miembros',
     'ckeditor',
+    'myblog',
 ]
 
 MIDDLEWARE = [
