@@ -22,8 +22,8 @@ class Post(models.Model):
     articulo = RichTextField(blank=True, null=True)
     #articulo = models.TextField()
     fecha_publicacion = models.DateField(auto_now_add=True)
-    categoria = models.CharField(max_length=255, default='codigo')
-    snippet = models.CharField(max_length=255)
+    categoria = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
+    #snippet = models.CharField(max_length=255)
 
     def __str__(self):
         return self.titulo + ' | ' + str(self.autor)
